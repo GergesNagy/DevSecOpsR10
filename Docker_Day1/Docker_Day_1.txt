@@ -1,0 +1,91 @@
+Problem 1
+
+1- Run the container hello world
+
+using the following command
+>> sudo docker run hello-world
+
+2- Check the Container status
+
+using the following command because the container is exited (i need -a)
+>> sudo docker ps -a 
+
+3- Start the stopped container
+using the following command
+>> docker start d8ee183c0af1 (Container ID)
+
+4-Remove the container
+using the following command
+>> docker rm d8ee183c0af1
+to check the container is removed? using docker ps -a
+
+5-Remove the image
+
+using the following command 
+>> docker image ls 
+to get image id and its name
+
+before removing the image i need to check if there are containers using this image and remove all containers 
+using the following command
+
+>> docker rmi 74cc54e27dc4 (Image ID)
+
+to check this image is removed 
+using the following command 
+>> docker image ls
+
+Problem 2
+
+1- Run container centos or ubuntu in an interactive mode
+
+using the following command 
+>> docker run -it --name myubuntu ubuntu
+
+2- Run the following command in the container “echo docker ”
+
+After using docker run -it --name myubuntu ubuntu the container is running interactive and type echo "docker"
+
+3-Open a bash shell in the container and touch a file named hello-docker
+
+using the following command inside the container 
+>> bash
+>> touch hello-docker
+
+4- Stop the container and remove it. Write your comment about the file hello-docker
+using the following command 
+>> docker ps -a  
+>> docker stop Container ID because the Container is exited because of the container is running for short time
+>> docker rm Container ID
+the file that i had created it will be removed
+
+5- Remove all stopped containers
+
+using the following command
+
+>> docker container  prune
+
+
+Problem 3
+
+1- Run a container httpd with name apache and
+
+attach a volume 2 volumes to the container
+
+▪ Volume1 for containing static html file
+
+▪ Volume2 for containing httpd configuration
+
+using the following command 
+>> docker run --rm httpd cat /usr/local/apache2/conf/httpd.conf > ~/my_apache_config/httpd.conf
+
+this command to get the default config for httpd
+
+>> docker run -d --name apache -v ~/apache_html:/usr/local/apache2/htdocs -v ~/apache_config:/usr/local/apache2/conf httpd
+
+>> docker stop (Container ID)
+>> docker rm (Container ID)
+to remove the container after stopping it
+
+>> docker run -d --name apache -v ~/apache_html:/usr/local/apache2/htdocs -v ~/apache_config:/usr/local/apache2/conf -p 9898:90 httpd
+
+check the browser with localhost:9898
