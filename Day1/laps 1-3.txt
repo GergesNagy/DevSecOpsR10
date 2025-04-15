@@ -1,0 +1,53 @@
+Problem1:
+#Run the container hello-world
+>docker run hello-world
+
+#Check the container status
+>docker ps -a >>STATUS(Exited (0) 43 seconds ago )
+
+#Start the stopped container
+>docker start 06308fab89bb
+
+#Remove the container
+>docker rm 06308fab89bb
+
+#Remove the image
+>docker rmi hello-world
+
+			------ 
+
+problem2:
+#Run container centos or ubuntu in an interactive mode
+>docker run -it ubuntu
+
+#Run the following command in the container “echo docker”
+>root@8f5efceee921:/# echo docker > docker
+
+#Open a bash shell in the container and touch a file named hello-docker
+>docker run -it ubuntu
+>touch /home/ubuntu/hello-docker
+
+#Stop the container and remove it. Write your comment about the file hello-docker
+>by running exit in shell
+>the comment: the file is deleted with its containing container as it was container internal file.
+
+#Remove all stopped containers
+>docker rm 8f5efceee921
+
+			------
+
+problem3:
+#Run a container httpd with name apache and attach a volume 2 volume to the container
+>docker run -d --name apache -v /home/mostafa/folder:/usr/local/apache2/htdocs/ httpd
+
+#Remove the container
+>docker stop apache
+>docker rm apache
+
+#Run a new container with the following:
+▪ Attach the 2 volumes that was attached to the previous container
+▪ Map port 80 to port 9898 on you host machine
+▪ Access the html files from your browser
+>docker run -d --name apache -v /home/mostafa/folder:/usr/local/apache2/htdocs/ -p 9898:80 httpd
+>opening "localhost:9898" in browser
+>opening staticWebPage.html
