@@ -2,7 +2,7 @@ problem4:
 ----------------
 ▪ Run the image httpd again without attaching any volumes
 
->> docker run -dit --name -p 8080:80 my-httpd httpd
+>> docker run -dit --name my-httpd -p 8080:80 httpd
 
 ▪ Add html static files to the container and make sure they are accessible
 
