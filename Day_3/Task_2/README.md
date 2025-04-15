@@ -47,11 +47,13 @@ CMD ["nginx", "-g", "daemon off;"]
    ```bash
    docker run -p 8181:80 react-nginx-app
    ```
+![Image](Screenshots/Task_2.1.png)
 3. Open your browser at:
    ```
    http://localhost:8181
    ```
    You should see your React app served by NGINX 🎉
+![Image](Screenshots/Task_2.2.png)
 
 ---
 

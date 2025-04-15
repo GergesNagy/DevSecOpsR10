@@ -33,6 +33,7 @@ ENTRYPOINT python script.py
    ```
    Hello Docker!
    ```
+![Image](Screenshots/Task_1.png)
 
 ---
 
