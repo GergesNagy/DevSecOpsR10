@@ -1,6 +1,23 @@
 
+---
+## Problem 2
+▪ Run container centos or ubuntu in an interactive 
+mode
+▪ Run the following command in the container 
+“echo docker ”
+▪ Open a bash shell in the container and touch a 
+file named hello-docker
+▪ Stop the container and remove it. Write your 
+comment about the file hello-docker
+▪ Remove all stopped containers
+
+---
+
 ```bash
 docker run -it centos:8 bash
+```
+**Output:**
+```bash
 [root@01a8884df697 /]# echo docker
 docker
 [root@01a8884df697 /]# touch hello-docker
@@ -12,28 +29,42 @@ exit
 ```bash
 docker ps -a
 ```
-CONTAINER ID   IMAGE           COMMAND                  CREATED          STATUS                      PORTS     NAMES
-01a8884df697   centos:8        "/bin/bash"              52 seconds ago   Exited (0) 5 seconds ago              pensive_knuth
-
-
+**Output:**
+```
+CONTAINER ID   IMAGE           COMMAND       CREATED          STATUS                      PORTS     NAMES
+01a8884df697   centos:8        "/bin/bash"   52 seconds ago   Exited (0) 5 seconds ago              pensive_knuth
+```
 ---
 
 ```bash
 docker stop 01a888
 ```
+**Output:**
+```
 01a888
+```
+
 ```bash
 docker rm 01a888
 ```
+**Output:**
+```
 01a888
+```
+
 ```bash
 docker ps -a
 ```
-CONTAINER ID   IMAGE           COMMAND                  CREATED        STATUS                      PORTS     NAMES
+**Output:**
+```
+CONTAINER ID   IMAGE     COMMAND     CREATED     STATUS     PORTS     NAMES
+```
 ---
 
 ```bash
 docker container prune
+```
+**Output:**
 ```
 WARNING! This will remove all stopped containers.
 Are you sure you want to continue? [y/N] y
@@ -45,4 +76,6 @@ a150c5e21a481678382996477122a31dca8acf8fd4bbddff73723ed53831de66
 79ec688b76607bfe0f68315ec385a803fcc7b5c1ea31e995700d8b3f63d5c674
 
 Total reclaimed space: 296.8kB
----
+```
+--- 
+

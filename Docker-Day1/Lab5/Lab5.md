@@ -1,6 +1,10 @@
-Absolutely, Amir! Here's your optimized documentation with **command prompts, actual outputs, and clean separation**, keeping your original style intact while making the outputs clearly visible for readability.
 
 ---
+## Problem 5
+▪ Create a volume called mysql_data, then deploy a MySQL database called app-database. 
+▪ Use the mysql latest image, and use the -e flag to set MYSQL_ROOT_PASSWORD to P4sSw0rd0!.
+▪ Mount the mysql_data volume to /var/lib/mysql. 
+▪ The container should run in the background.
 
 ```bash
 amir@amir-ubuntu:~$ docker volume create mysql_data 
