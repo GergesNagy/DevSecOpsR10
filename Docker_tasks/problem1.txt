@@ -1,0 +1,22 @@
+Problem 1
+▪ Run the container hello-world
+
+>> docker run hello-world
+
+▪ Check the container status
+
+>> docker ps -a
+
+▪ Start the stopped container
+
+>> docker start 4c5ac810a831 -a
+
+▪ Remove the container
+
+>> docker stop 4c5ac810a831
+>> docker container rm 4c5ac810a831 
+
+▪ Remove the image
+
+>> docker images
+>> docker rmi 74cc54e27dc4

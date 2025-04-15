@@ -1,0 +1,47 @@
+Problem 3:
+-----------
+
+▪ Run a container httpd with name apache and
+attach a volume 2 volumes to the container
+- Volume1 for containing static html file
+- Volume2 for containing httpd configuration
+---------------------------------------------
+
+# copy the config temp to host
+>> mkdir -p ~/apache/config/httpd.conf
+>> docker run --name temp-apache httpd:latest
+>> docker cp temp-apache:/usr/local/apache2/conf/httpd.conf ~/apache/config/httpd.conf
+
+# create the html file
+>> mkdir -p ~/apache/html
+>> echo "<h1>Hello from Apache in Docker!</h1>" > ~/apache/html/index.html
+
+>> docker run -dit \
+  --name my-apache \
+  -p 8080:80 \
+  -v ~/apache/html:/usr/local/apache2/htdocs/ \
+  -v ~/apache/config/httpd.conf:/usr/local/apache2/conf/httpd.conf \
+  httpd:latest
+  
+---------------------------------------------
+▪ Remove the container
+
+>> docker stop 4d2
+>> docker rm 4d2 
+
+---------------------------------------------
+▪ Run a new container with the following:
+- Attach the 2 volumes that was attached to the previous container
+- Map port 80 to port 9898 on you host machine
+
+>> docker run -dit \
+  --name my-apache \
+  -p 9898:80 \
+  -v ~/apache/html:/usr/local/apache2/htdocs/ \
+  -v ~/apache/config/httpd.conf:/usr/local/apache2/conf/httpd.conf \
+  httpd:latest
+
+---------------------------------------------
+▪ Access the html files from your browser 
+
+>> http://localhost:9898/

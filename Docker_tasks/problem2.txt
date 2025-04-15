@@ -1,0 +1,25 @@
+Problem 2:
+-----------
+
+
+▪ Run container centos or ubuntu in an interactive mode
+
+>> docker run -it ubuntu bash
+
+▪ Run the following command in the container “echo docker ”
+
+>> docker ps
+>> docker exec -it a0f94b1e3918 echo "echo docker"
+
+▪ Open a bash shell in the container and touch a file named hello-docker
+
+>> docker exec -it a0f94b1e3918 touch hello-docker
+
+▪ Stop the container and remove it. Write your comment about the file hello-docker
+
+>> docker stop a0f94b1e3918
+>> docker rm   a0f94b1e3918
+
+▪ Remove all stopped containers
+
+>> docker container prune

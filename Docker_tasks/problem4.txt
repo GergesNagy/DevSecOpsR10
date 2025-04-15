@@ -1,0 +1,26 @@
+problem4:
+----------------
+▪ Run the image httpd again without attaching any volumes
+
+>> docker run -dit --name -p 8080:80 my-httpd httpd
+
+▪ Add html static files to the container and make sure they are accessible
+
+>> docker cp index.html my-httpd:/usr/local/apache2/htdocs/index.html
+
+▪ Commit the container with image name IMAGE_NAME
+
+>> docker commit my-httpd new_img
+
+▪ Create a dockerfile for the previous image and build the image from this dockerfile
+
+>> sudo nano Dockerfile
+>> 
+	FROM new_img
+	COPY index.html /usr/local/apache2/htdocs/
+	EXPOSE 80
+	
+
+>> docker build -t custom_img .
+
+
