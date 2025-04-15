@@ -1,0 +1,326 @@
+task 1:Run the container hello-world
+▪ Check the container status
+▪ Start the stopped container
+▪ Remove the container
+▪ Remove the image
+
+mohmed@localhost my-secure-app]$ sudo docker run hello-world sleep 500
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "sleep": executable file not found in $PATH: unknown
+
+Run 'docker run --help' for more information
+[mohmed@localhost my-secure-app]$ sudo docker rmi 74cc54e27dc4
+Error response from daemon: conflict: unable to delete 74cc54e27dc4 (must be forced) - image is being used by stopped container 87bd18ad4e75
+[mohmed@localhost my-secure-app]$ sudo docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS                    PORTS      NAMES
+8ba0868a294d   hello-world       "sleep 500"              About a minute ago   Created                              nostalgic_euclid
+87bd18ad4e75   hello-world       "sleep 5"                6 minutes ago        Created                              flamboyant_mahavira
+342fcd2ae6fc   redis             "docker-entrypoint.s…"   14 hours ago         Up 14 hours               6379/tcp   reverent_lalande
+d55576f2e209   redis             "docker-entrypoint.s…"   14 hours ago         Exited (1) 14 hours ago              jovial_sanderson
+03e41a888ccd   custom-nginx:v1   "/docker-entrypoint.…"   2 days ago           Exited (0) 2 days ago                brave_satoshi
+[mohmed@localhost my-secure-app]$ sudo docker rm 8ba0868a294d 87bd18ad4e75
+8ba0868a294d
+87bd18ad4e75
+[mohmed@localhost my-secure-app]$ sudo docker images
+REPOSITORY        TAG          IMAGE ID       CREATED        SIZE
+my-secure-nginx   latest       f01ba6141c5b   46 hours ago   47.9MB
+custom-nginx      v1           928dfcf21284   2 days ago     192MB
+alpine            latest       aded1e1a5b37   8 weeks ago    7.83MB
+nginx             latest       4cad75abc83d   2 months ago   192MB
+mysql             latest       567107cb6971   2 months ago   797MB
+hello-world       latest       74cc54e27dc4   2 months ago   10.1kB
+redis             latest       65750d044ac8   3 months ago   117MB
+php               7.4-apache   20a3732f422b   2 years ago    453MB
+[mohmed@localhost my-secure-app]$ sudo docker rmi hello-world
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:424f1f86cdf501deb591ace8d14d2f40272617b51b374915a87a2886b2025ece
+Deleted: sha256:74cc54e27dc41bb10dc4b2226072d469509f2f22f1a3ce74f4a59661a1d44602
+Deleted: sha256:63a41026379f4391a306242eb0b9f26dc3550d863b7fdbb97d899f6eb89efe72
+[mohmed@localhost my-secure-app]$ sudo docker run hello-world sleep 500
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+e6590344b1a5: Pull complete 
+Digest: sha256:424f1f86cdf501deb591ace8d14d2f40272617b51b374915a87a2886b2025ece
+Status: Downloaded newer image for hello-world:latest
+docker: Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: exec: "sleep": executable file not found in $PATH: unknown
+
+Run 'docker run --help' for more information
+[mohmed@localhost my-secure-app]$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED        STATUS        PORTS      NAMES
+342fcd2ae6fc   redis     "docker-entrypoint.s…"   14 hours ago   Up 14 hours   6379/tcp   reverent_lalande
+[mohmed@localhost my-secure-app]$ sudo docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS                    PORTS      NAMES
+a1c9de93bb7f   hello-world       "sleep 500"              About a minute ago   Created                              pensive_northcutt
+342fcd2ae6fc   redis             "docker-entrypoint.s…"   14 hours ago         Up 14 hours               6379/tcp   reverent_lalande
+d55576f2e209   redis             "docker-entrypoint.s…"   14 hours ago         Exited (1) 14 hours ago              jovial_sanderson
+03e41a888ccd   custom-nginx:v1   "/docker-entrypoint.…"   2 days ago           Exited (0) 2 days ago                brave_satoshi
+[mohmed@localhost my-secure-app]$ sudo docker rm a1c9de93bb7f
+a1c9de93bb7f
+[mohmed@localhost my-secure-app]$ sudo docker images
+REPOSITORY        TAG          IMAGE ID       CREATED        SIZE
+my-secure-nginx   latest       f01ba6141c5b   46 hours ago   47.9MB
+custom-nginx      v1           928dfcf21284   2 days ago     192MB
+alpine            latest       aded1e1a5b37   8 weeks ago    7.83MB
+nginx             latest       4cad75abc83d   2 months ago   192MB
+mysql             latest       567107cb6971   2 months ago   797MB
+hello-world       latest       74cc54e27dc4   2 months ago   10.1kB
+redis             latest       65750d044ac8   3 months ago   117MB
+php               7.4-apache   20a3732f422b   2 years ago    453MB
+[mohmed@localhost my-secure-app]$ sudo docker rmi 74cc54e27dc4
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:424f1f86cdf501deb591ace8d14d2f40272617b51b374915a87a2886b2025ece
+Deleted: sha256:74cc54e27dc41bb10dc4b2226072d469509f2f22f1a3ce74f4a59661a1d44602
+Deleted: sha256:63a41026379f4391a306242eb0b9f26dc3550d863b7fdbb97d899f6eb89efe72
+
+
+
+
+
+task 2:▪ Run container centos or ubuntu in an interactive
+mode
+▪ Run the following command in the container
+“echo docker ”
+▪ Open a bash shell in the container and touch a
+file named hello-docker
+▪ Stop the container and remove it. Write your
+comment about the file hello-docker
+▪ Remove all stopped containers
+
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+2726e237d1a3: Pull complete 
+Digest: sha256:1e622c5f073b4f6bfad6632f2616c7f59ef256e96fe78bf6a595d1dc4376ac02
+Status: Downloaded newer image for ubuntu:latest
+[mohmed@localhost my-secure-app]$ sudo docker ps 
+CONTAINER ID   IMAGE     COMMAND                  CREATED        STATUS        PORTS      NAMES
+342fcd2ae6fc   redis     "docker-entrypoint.s…"   15 hours ago   Up 15 hours   6379/tcp   reverent_lalande
+[mohmed@localhost my-secure-app]$ sudo docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS                          PORTS      NAMES
+287da0dde00d   ubuntu            "/bin/bash"              About a minute ago   Exited (0) About a minute ago              elated_clarke
+342fcd2ae6fc   redis             "docker-entrypoint.s…"   15 hours ago         Up 15 hours                     6379/tcp   reverent_lalande
+d55576f2e209   redis             "docker-entrypoint.s…"   15 hours ago         Exited (1) 15 hours ago                    jovial_sanderson
+03e41a888ccd   custom-nginx:v1   "/docker-entrypoint.…"   2 days ago           Exited (0) 2 days ago                      brave_satoshi
+[mohmed@localhost my-secure-app]$ docker exec 287da0dde00d cat /etc/hosts
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.48/containers/287da0dde00d/json": dial unix /var/run/docker.sock: connect: permission denied
+[mohmed@localhost my-secure-app]$ docker exec 287da0dde00d sudo cat /etc/hosts
+permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get "http://%2Fvar%2Frun%2Fdocker.sock/v1.48/containers/287da0dde00d/json": dial unix /var/run/docker.sock: connect: permission denied
+[mohmed@localhost my-secure-app]$ sudo docker exec 287da0dde00d cat /etc/hosts
+Error response from daemon: container 287da0dde00dbcc49d634eb0ff0ba33e6b692fc0d088b5aa719f9bd2ffd6430b is not running
+[mohmed@localhost my-secure-app]$ sudo docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS                     PORTS      NAMES
+287da0dde00d   ubuntu            "/bin/bash"              3 minutes ago   Exited (0) 3 minutes ago              elated_clarke
+342fcd2ae6fc   redis             "docker-entrypoint.s…"   15 hours ago    Up 15 hours                6379/tcp   reverent_lalande
+d55576f2e209   redis             "docker-entrypoint.s…"   15 hours ago    Exited (1) 15 hours ago               jovial_sanderson
+03e41a888ccd   custom-nginx:v1   "/docker-entrypoint.…"   2 days ago      Exited (0) 2 days ago                 brave_satoshi
+[mohmed@localhost my-secure-app]$ sudo docker start 287da0dde00d sleep 500
+287da0dde00d
+Error response from daemon: No such container: sleep
+Error response from daemon: No such container: 500
+Error: failed to start containers: sleep, 500
+[mohmed@localhost my-secure-app]$ sudo docker run 287da0dde00d sleep 500
+Unable to find image '287da0dde00d:latest' locally
+docker: Error response from daemon: pull access denied for 287da0dde00d, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+
+Run 'docker run --help' for more information
+[mohmed@localhost my-secure-app]$ sudo docker rm -a
+
+comment: the ubuntu container goes down just after runnimg it and it doesnt execute anything on i
+	 the file hello world will be deleted as it wasnt volumed
+
+
+
+
+
+
+
+
+
+
+TASK 3:▪ Run a container httpd with name apache and
+attach a volume 2 volumes to the container
+▪ Volume1 for containing static html file
+▪ Volume2 for containing httpd configuration
+▪ Remove the container
+▪ Run a new container with the following:
+▪ Attach the 2 volumes that was attached to the
+previous container
+▪ Map port 80 to port 9898 on you host machine
+▪ Access the html files from your browser
+[mohmed@localhost html]$ sudo docker run -d --name apache -p 9898:80 -v ~/html:/usr/local/apache2/htdocs httpd 
+[sudo] password for mohmed: 
+faeee1049f5178dac6897b5aa8f73b49a4dd8ca759a73b6b93aaf81df5b2dc54
+[mohmed@localhost html]$ sudo docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                     NAMES
+faeee1049f51   httpd     "httpd-foreground"       14 seconds ago   Up 13 seconds   0.0.0.0:9898->80/tcp, [::]:9898->80/tcp   apache
+342fcd2ae6fc   redis     "docker-entrypoint.s…"   22 hours ago     Up 22 hours     6379/tcp                                  reverent_lalande
+[mohmed@localhost html]$ sudo docker exec apache ls 
+bin
+build
+cgi-bin
+conf
+error
+htdocs
+icons
+include
+logs
+modules
+[mohmed@localhost html]$ sudo docker exec apache ls htdocs/index.html
+htdocs/index.html
+[mohmed@localhost html]$ sudo docker exec apache cat htdocs/index.html
+<h1> welcome to muy multi container</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello to Docker</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello to Docker</h1>
+</body>
+</html>
+[mohmed@localhost html]$ sudo docker ps
+[sudo] password for mohmed: 
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                     NAMES
+faeee1049f51   httpd     "httpd-foreground"       38 minutes ago   Up 38 minutes   0.0.0.0:9898->80/tcp, [::]:9898->80/tcp   apache
+342fcd2ae6fc   redis     "docker-entrypoint.s…"   23 hours ago     Up 23 hours     6379/tcp                                  reverent_lalande
+[mohmed@localhost html]$ sudo docker stop faeee1049f51
+faeee1049f51
+[mohmed@localhost html]$ sudo docker rm faeee1049f51
+
+
+
+
+
+task 4:▪ Run the image httpd again without attaching any
+volumes
+▪ Add html static files to the container and make
+sure they are accessible
+▪ Commit the container with image name
+IMAGE_NAME
+▪ Create a dockerfile for the previous image and
+build the image from this dockerfile
+
+
+[mohmed@localhost my_image]$ sudo docker cp html/index.html my-image:/usr/local/apache2/htdocs/index.html
+Successfully copied 2.05kB to my-image:/usr/local/apache2/htdocs/index.html
+[mohmed@localhost my_image]$ sudo docker commit my-image my-custom-httpd:v1
+sha256:96dd0eaa6681a09e35fda6f39ec333cec9adf8576af890fa5df7988a641b8159
+[mohmed@localhost my_image]$ mkdir my-custom-httpd
+cd my-custom-httpd
+sudo nano Dockerfile
+[mohmed@localhost my-custom-httpd]$ ls
+Dockerfile
+[mohmed@localhost my-custom-httpd]$ echo "<h1>Hello from Docker!</h1>" > index.html
+bash: !: event not found
+[mohmed@localhost my-custom-httpd]$ echo "<h1>Hello from Docker</h1>" > index.html
+[mohmed@localhost my-custom-httpd]$ cp ../index.html .
+cp: cannot stat '../index.html': No such file or directory
+[mohmed@localhost my-custom-httpd]$ ls
+Dockerfile  index.html
+[mohmed@localhost my-custom-httpd]$ sudo docker build -t my-custom-httpd:v2 .
+[+] Building 0.1s (7/7) FINISHED                                      docker:default
+ => [internal] load build definition from Dockerfile                            0.0s
+ => => transferring dockerfile: 150B                                            0.0s
+ => [internal] load metadata for docker.io/library/httpd:latest                 0.0s
+ => [internal] load .dockerignore                                               0.0s
+ => => transferring context: 2B                                                 0.0s
+ => [internal] load build context                                               0.0s
+ => => transferring context: 123B                                               0.0s
+ => CACHED [1/2] FROM docker.io/library/httpd:latest                            0.0s
+ => [2/2] COPY index.html /usr/local/apache2/htdocs/                            0.0s
+ => exporting to image                                                          0.0s
+ => => exporting layers                                                         0.0s
+ => => writing image sha256:1a65f75835dffb29ae38daf60f7cf852ede457d58354e0d0e5  0.0s
+ => => naming to docker.io/library/my-custom-httpd:v2                           0.0s
+[mohmed@localhost my-custom-httpd]$ sudo docker run -d --name webserver -p 8080:80 my-custom-httpd:v2
+abf4359abb78d33a44228d272d24446670d4b2db5c9c429131333fa9bae3aa9c
+[mohmed@localhost my-custom-httpd]$ 
+comment: the image name must be lower case 
+
+
+
+
+
+
+
+
+task 5:Create a volume called mysql_data, then deploy
+a MySQL database called app-database. Use the
+mysql latest image, and use the -e flag to
+set MYSQL_ROOT_PASSWORD to P4sSw0rd0!.M
+ount the mysql_data volume to /var/lib/mysql.
+The container should run in the background.
+
+[mohmed@localhost my-custom-httpd]$ sudo docker volume create mysql_data
+[sudo] password for mohmed: 
+Sorry, try again.
+[sudo] password for mohmed: 
+mysql_data
+[mohmed@localhost my-custom-httpd]$ sudo docker run -d --name app-database -e MYSQL_ROOT_PASSWORD=P4sSw0rd0! -v mysql_data:/var/lib/mysql mysql:latest
+Unable to find image 'mysql:latest' locally
+latest: Pulling from library/mysql
+cea172a6e83b: Pull complete 
+daac2c594bdd: Pull complete 
+cb8acbf2440c: Pull complete 
+fae51f7de1fb: Pull complete 
+b2ead3e96e6b: Pull complete 
+769c3ac51f88: Pull complete 
+79f239a40e62: Pull complete 
+c11056354384: Pull complete 
+49978e7ccddf: Pull complete 
+548990e33276: Pull complete 
+Digest: sha256:0596fa224cdf3b3355ce3ddbfd7ce77be27ec9e51841dfc5d2e1c8b81eea69d2
+Status: Downloaded newer image for mysql:latest
+244801369f46624d057e8252addb2623c068bf7f8e8bfca39e72d639ba85d826
+[mohmed@localhost my-custom-httpd]$ sudo docker exec -it app-database bash
+bash-5.1# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 9.2.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
