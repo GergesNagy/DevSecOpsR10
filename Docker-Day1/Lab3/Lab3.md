@@ -1,16 +1,16 @@
 
 ---
 ## Problem 3
-▪ Run a container httpd with name apache and 
+- Run a container httpd with name apache and 
 attach a volume 2 volumes to the container
-▪ Volume1 for containing static html file
-▪ Volume2 for containing httpd configuration
-▪ Remove the container
-▪ Run a new container with the following:
-▪ Attach the 2 volumes that was attached to the 
+- Volume1 for containing static html file
+- Volume2 for containing httpd configuration
+- Remove the container
+- Run a new container with the following:
+- Attach the 2 volumes that was attached to the 
 previous container
-▪ Map port 80 to port 9898 on you host machine
-▪ Access the html files from your browser
+- Map port 80 to port 9898 on you host machine
+- Access the html files from your browser
 
 
 ---

@@ -1,13 +1,13 @@
 
 ---
 ## Problem 4
-▪ Run the image httpd again without attaching any 
+- Run the image httpd again without attaching any 
 volumes
-▪ Add html static files to the container and make 
+- Add html static files to the container and make 
 sure they are accessible
-▪ Commit the container with image name 
+- Commit the container with image name 
 IMAGE_NAME
-▪ Create a dockerfile for the previous image and 
+- Create a dockerfile for the previous image and 
 build the image from this dockerfile
 
 ---

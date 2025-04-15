@@ -1,15 +1,11 @@
 
 ---
 ## Problem 2
-▪ Run container centos or ubuntu in an interactive 
-mode
-▪ Run the following command in the container 
-“echo docker ”
-▪ Open a bash shell in the container and touch a 
-file named hello-docker
-▪ Stop the container and remove it. Write your 
-comment about the file hello-docker
-▪ Remove all stopped containers
+- Run container centos or ubuntu in an interactive mode
+- Run the following command in the container “echo docker ”
+- Open a bash shell in the container and touch a file named hello-docker
+- Stop the container and remove it. Write your comment about the file hello-docker
+- Remove all stopped containers
 
 ---
 

@@ -1,12 +1,13 @@
 
 ---
 ## Problem 1
-▪ Run the container hello-world
-▪ Check the container status
-▪ Start the stopped container
-▪ Remove the container
-▪ Remove the image
+- Run the container hello-world
+- Check the container status
+- Start the stopped container
+- Remove the container
+- Remove the image
 
+---
 
 ```bash
 docker run hello-world
@@ -27,14 +28,8 @@ To generate this message, Docker took the following steps:
     to your terminal.
 ```
 
-**Useful Links:**
-* Try more: `$ docker run -it ubuntu bash`
-* Share and automate: https://hub.docker.com/
-* Learn more: https://docs.docker.com/get-started/
-
 ---
 
-## List All Containers
 
 ```bash
 docker ps -a
@@ -53,7 +48,6 @@ a150c5e21a48   centos:8        "/bin/bash"              3 weeks ago      Exited 
 
 ---
 
-## Stop a Container
 
 ```bash
 docker stop 9644
@@ -66,7 +60,6 @@ docker stop 9644
 
 ---
 
-## Start a Container
 
 ```bash
 docker start 9644
@@ -79,7 +72,6 @@ docker start 9644
 
 ---
 
-## Remove a Container
 
 ```bash
 docker rm 9644
@@ -92,13 +84,11 @@ docker rm 9644
 
 ---
 
-## List Docker Images
 
 ```bash
 docker images
 ```
 
-**Before Removal:**
 ```
 REPOSITORY        TAG       IMAGE ID       CREATED         SIZE
 hello-world       latest    74cc54e27dc4   2 months ago    10.1kB
@@ -117,7 +107,6 @@ centos            8         5d0da3dc9764   3 years ago     231MB
 
 ---
 
-## Remove an Image
 
 ```bash
 docker rmi 74cc
@@ -133,7 +122,6 @@ Deleted: sha256:63a41026379f4391a306242eb0b9f26dc3550d863b7fdbb97d899f6eb89efe72
 
 ---
 
-## 📦 Docker Images (After Removal)
 
 ```bash
 docker images
