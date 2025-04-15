@@ -1,0 +1,32 @@
+---
+
+## ✅ Task 5: Deploying MySQL with Volume
+
+### 📝 Problem 5
+
+- Create a volume called `mysql_data`
+- Deploy a MySQL container named `app-database`
+- Use the `mysql:latest` image
+- Set `MYSQL_ROOT_PASSWORD` to `P4sSw0rd0!` using the `-e` flag
+- Mount the `mysql_data` volume to `/var/lib/mysql`
+- The container should run in the background (detached mode)
+
+### 💻 Commands Used
+
+```bash
+# Create a Docker volume for MySQL data
+docker volume create mysql_data
+
+# Run the MySQL container
+docker run -d \
+  --name app-database \
+  -e MYSQL_ROOT_PASSWORD=12345 \
+  -v mysql_data:/var/lib/mysql \
+  mysql:latest
+
+
+docker ps
+
+
+docker exec -it app-database mysql -u root -p
+# Then enter: 12345!

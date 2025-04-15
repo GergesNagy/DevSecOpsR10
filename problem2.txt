@@ -1,0 +1,42 @@
+Problem 2
+ ▪Run container centos or ubuntu in an interactive 
+mode
+ ▪Run the following command in the container 
+“echo docker ”
+ ▪Open a bash shell in the container and touch a 
+file named hello-docker
+ ▪Stop the container and remove it. Write your 
+comment about the file hello-docker
+ ▪Remove all stopped containers
+
+
+
+[root@localhost mohanedabdelaziz]# docker run -it ubuntu bash
+root@b654f7f68b40:/# echo docker
+docker
+root@b654f7f68b40:/# touch hello-docker
+root@b654f7f68b40:/# exit
+exit
+[root@localhost mohanedabdelaziz]# ps -a
+    PID TTY          TIME CMD
+   2504 tty2     00:00:00 gnome-session-b
+   3385 pts/0    00:00:00 su
+   3391 pts/0    00:00:00 bash
+   3884 pts/0    00:00:00 ps
+[root@localhost mohanedabdelaziz]# docker ps -a
+CONTAINER ID   IMAGE     COMMAND                CREATED              STATUS                      PORTS     NAMES
+b654f7f68b40   ubuntu    "bash"                 About a minute ago   Exited (0) 27 seconds ago             elastic_moore
+12273e3edd85   tasks     "python /task_py.py"   7 hours ago          Exited (0) 7 hours ago                youthful_neumann
+2bca14a4d73b   httpd     "httpd-foreground"     9 hours ago          Exited (255) 7 hours ago    80/tcp    apache
+[root@localhost mohanedabdelaziz]# docker stop b65
+b65
+[root@localhost mohanedabdelaziz]# docker rm b65
+b65
+[root@localhost mohanedabdelaziz]# docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+12273e3edd85ba13f9a47d3be4b35d53fbb7f6edbffcaee1b113122f9d567f72
+2bca14a4d73bda698e62779c26b027d5122148e55b03c1090dcbaee3aebf83f4
+
+Total reclaimed space: 20.92kB

@@ -1,0 +1,29 @@
+
+
+Problem 3
+ ▪Run a container httpd with name apache and 
+attach a volume 2 volumes to the container
+ ▪ Volume1 for containing static html file
+ ▪ Volume2 for containing httpd configuration
+ ▪Remove the container
+ ▪Run a new container with the following:
+ ▪ Attach the 2 volumes that was attached to the 
+previous container
+ ▪Map port 80 to port 9898 on you host machine
+ ▪ Access the html files from your browser
+
+
+[root@localhost mohanedabdelaziz]# ls
+database   Downloads  Public    Templates
+Desktop    Music      reactapp  Videos
+Documents  Pictures   tasks
+[root@localhost mohanedabdelaziz]# cd database
+[root@localhost database]# ls
+staticWebPage.html
+[root@localhost database]# cd ..
+[root@localhost mohanedabdelaziz]# docker run -d --name apache -v "$(pwd)/database":/usr/local/apache2/htdocs httpd                                             
+29306bd5e26804b768f3392bd7767cd4071073be38a9638c95ca10572526dbac
+[root@localhost mohanedabdelaziz]# docker rm -f apache
+apache
+[root@localhost mohanedabdelaziz]# docker run -d --name apache -p 9898:80  -v "$(pwd)/database":/usr/local/apache2/htdocs httpd
+de73114074068939ac8c7ba98725384a8f155bf3baa1cfb1becf5a47cdce411d

@@ -1,0 +1,60 @@
+Problem 1
+ ▪ Run the container hello-world
+ ▪ Check the container status
+ ▪ Start the stopped container
+ ▪ Remove the container
+ ▪ Remove the image
+
+
+
+[root@localhost mohanedabdelaziz]# docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+e6590344b1a5: Pull complete 
+Digest: sha256:424f1f86cdf501deb591ace8d14d2f40272617b51b374915a87a2886b2025ece
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+[root@localhost mohanedabdelaziz]# docker ps -a
+CONTAINER ID   IMAGE         COMMAND                CREATED          STATUS                      PORTS     NAMES
+92840435055d   hello-world   "/hello"               41 seconds ago   Exited (0) 41 seconds ago             serene_jemison
+12273e3edd85   tasks         "python /task_py.py"   7 hours ago      Exited (0) 7 hours ago                youthful_neumann
+2bca14a4d73b   httpd         "httpd-foreground"     9 hours ago      Exited (255) 7 hours ago    80/tcp    apache
+[root@localhost mohanedabdelaziz]# docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[root@localhost mohanedabdelaziz]# docker stop 928
+928
+[root@localhost mohanedabdelaziz]# docker rm 928
+928
+[root@localhost mohanedabdelaziz]# docker images
+REPOSITORY     TAG       IMAGE ID       CREATED        SIZE
+tasks          latest    411538c0fdf0   7 hours ago    48.2MB
+apache-httpd   v1        739cb9934793   9 hours ago    148MB
+ubuntu         latest    602eb6fb314b   7 days ago     78.1MB
+httpd          latest    10fd72f437c4   2 months ago   148MB
+hello-world    latest    74cc54e27dc4   2 months ago   10.1kB
+[root@localhost mohanedabdelaziz]# docker rmi 74cc
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:424f1f86cdf501deb591ace8d14d2f40272617b51b374915a87a2886b2025ece
+Deleted: sha256:74cc54e27dc41bb10dc4b2226072d469509f2f22f1a3ce74f4a59661a1d44602
+Deleted: sha256:63a41026379f4391a306242eb0b9f26dc3550d863b7fdbb97d899f6eb89efe72

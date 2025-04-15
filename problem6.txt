@@ -1,0 +1,20 @@
+mkdir hello-docker
+cd hello-docker
+touch app.py
+cat>>app.py
+print("Hello Docker!")
+
+
+
+# Dockerfile
+FROM python:3.12-alpie
+COPY app.py /app.py
+CMD ["python", "/app.py"]
+
+docker build -t hello-docker .
+docker run --rm hello-docker
+#show Hello Doker!
+
+
+
+

@@ -1,0 +1,51 @@
+---
+
+## ✅ Task 4: Customizing a Container and Creating a Dockerfile
+
+### 📝 Problem 4
+
+- Run the image `httpd` again without attaching any volumes
+- Add static HTML files inside the container and make sure they are accessible
+- Commit the container to a new image called `IMAGE_NAME`
+- Create a `Dockerfile` based on the committed image and rebuild it
+
+### 💻 Commands Used
+
+```bash
+# Run the httpd container (no volumes)
+docker run -dit --name apache-temp httpd
+
+# Copy HTML files into the container
+docker cp index.html apache-temp:/usr/local/apache2/htdocs/index.html
+
+# Verify it's accessible (open http://localhost if port is exposed)
+
+# Commit the container to a new image
+docker commit apache-temp IMAGE_NAME
+
+# (Optional) Remove the container if no longer needed
+docker stop apache-temp
+docker rm apache-temp
+
+
+# Dokerfile
+# Use the committed image as the base
+FROM IMAGE_NAME
+
+# Set the working directory
+WORKDIR /usr/local/apache2/htdocs
+
+# Copy new static files if needed (optional if already in image)
+# COPY index.html .
+
+# Expose Apache default port
+EXPOSE 80
+
+# Start Apache in foreground
+CMD ["httpd-foreground"]
+
+# build
+docker build -t custom-httpd .
+
+# Run
+docker run -d -p 9898:80 custom-httpd
