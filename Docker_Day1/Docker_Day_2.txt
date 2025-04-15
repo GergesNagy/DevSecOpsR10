@@ -1,0 +1,45 @@
+Problem 4
+1-Run the image httpd again without attaching any volumes
+using the following command
+>> docker run -d --name apache_temp -p 80:80 httpd
+
+2- Add html static files to the container and make sure they are accessible
+
+using the following command
+>> docker cp index.html apache_temp:/usr/local/apache2/htdocs/
+
+3-Commit the container with image name IMAGE_NAME
+using the following command
+>> docker commit apache_temp my_custom_apache
+Verify the new image exists:
+>> docker images
+
+First, stop and remove the temporary container:
+
+docker stop apache_temp
+docker rm apache_temp
+
+4- Create a dockerfile for the previous image and build the image from this dockerfile
+
+FROM httpd:latest
+
+COPY index.html /usr/local/apache2/htdocs/
+
+EXPOSE 90
+
+using the following command to build the image from the Dockerfile
+>> docker build -t my_custom_apache_from_dockerfile .
+>> docker run -d --name custom_apache -p 90:80 my_custom_apache_from_dockerfile
+
+
+
+Problem 5
+
+using the following command
+>> docker volume create mysql_data
+
+
+>> docker run -d --name app-database -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=P4sSw0rd0! -p 3306:3306 mysql:latest
+
+To connect Database
+>> docker exec -it app-database mysql -uroot -pP4sSw0rd0!

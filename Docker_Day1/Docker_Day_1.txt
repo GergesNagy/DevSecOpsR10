@@ -77,6 +77,7 @@ attach a volume 2 volumes to the container
 
 using the following command 
 >> docker run --rm httpd cat /usr/local/apache2/conf/httpd.conf > ~/my_apache_config/httpd.conf
+>> docker run --rm httpd cat /usr/local/apache2/conf/mime.types > ~/apache_config/conf/mime.types
 
 this command to get the default config for httpd
 
