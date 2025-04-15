@@ -52,8 +52,8 @@ docker container prune
 ```sh
 docker run -d --name apache \
 -p 9898:80 \
--v ./staticWebPage.html:/var/www/html/index.html \
--v ./custom-httpd.conf:/usr/local/apache2/conf/httpd.conf \
+-v ./htdocs/:/usr/local/apache2/htdocs/ \
+-v ./conf/:/usr/local/apache2/conf/ \
 httpd
 ```
 ![Image](Screenshots/problem3.png)
