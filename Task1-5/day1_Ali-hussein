@@ -1,0 +1,81 @@
+--------Problem 1-----------------
+Run the container Hello World:
+"docker container run -it hello-world"
+
+Check the Container status:
+- i ran using -a becuase the container exited after creation
+"docker container ps -a"
+
+Start the stopped container:
+"docker container start -i c310"
+
+Delete container and image:
+"docker container rm c310"
+"docker rmi hello-world"
+
+
+-------Problem 2--------------------
+Run Container centos in interactive mode:
+"docker container run -it centos:centos7"
+
+Run echo docker:
+"echo docker"
+
+create text file:
+"touch hello-world"
+
+stop the container the remove it:
+"docker container stop d314"
+"docker container rm d314"
+
+remove all stopped containers:
+"docker container prune -f"
+
+
+
+----------Problem 3-----------------
+run container httpd and attach volume
+"docker container run -it -v /home/ali/vol1:/usr/local/apache2/htdocs/ -p 9000:80 httpd"
+
+remove container:
+"docker container rm e314"
+
+run a new container:
+"docker container run -it -v /home/ali/vol1:/usr/local/apache2/htdocs/ -p 9000:80 httpd"
+
+
+
+-------Problem 4--------------------
+run the image again:
+"docker container run -it httpd"
+
+add html static file:
+"cp staticWebPage.html /var/lib/docker/overlay2/9c2876c1cfeabcfef035f5115fa4c0d741516f6aa5d6b96b83bab60c0ae913ea/diff/ali"
+
+- first i made a directory called ali to appear in the diff folder of the container
+- then i copied the static html file to the diff/ali
+
+commit the container:
+"docker commit 29a9 httpd_ali"
+
+Create Dockerfile:
+
+FROM httpd_ali
+
+WORKDIR /ali
+
+RUN mv staticWebPage.html /usr/local/apache2/htdocs/
+
+WORKDIR /usr/local/apache2/htdocs/
+
+RUN rm index.html && mv staticWebPage.html index.html
+
+EXPOSE 80
+
+
+-----Problem 5-----------
+Create a volume:
+"docker volume create mysql_data"
+
+Deploy volume:
+"docker container run -it -v mysql_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=P4sSw0rd0! mysql:latest"
