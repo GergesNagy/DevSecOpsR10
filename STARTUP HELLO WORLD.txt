@@ -1,0 +1,49 @@
+[mohmed@localhost my_image]$ ls
+Dockerfile  html  my-custom-httpd
+[mohmed@localhost my_image]$ cd ..
+[mohmed@localhost ~]$ mkdir work-space
+[mohmed@localhost ~]$ cd work-space
+[mohmed@localhost work-space]$ echo 'print("Hello Docker")' > test.py
+[mohmed@localhost work-space]$ nano Dockerfile
+[mohmed@localhost work-space]$ nano test.py 
+[mohmed@localhost work-space]$ sudo docker build -t my-test:v1 .
+[sudo] password for mohmed: 
+[+] Building 25.6s (7/7) FINISHED                                docker:default
+ => [internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 167B                                       0.0s
+ => [internal] load metadata for docker.io/library/python:3-alpine         6.1s
+ => [internal] load .dockerignore                                          0.0s
+ => => transferring context: 2B                                            0.0s
+ => [internal] load build context                                          0.0s
+ => => transferring context: 115B                                          0.0s
+ => [1/2] FROM docker.io/library/python:3-alpine@sha256:18159b2be11db91f  19.2s
+ => => resolve docker.io/library/python:3-alpine@sha256:18159b2be11db91f8  0.0s
+ => => sha256:ece12c7dbf45e449905acd1b349b0cb14bc0c5c33ad 5.13kB / 5.13kB  0.0s
+ => => sha256:c7ea9f6d786a34c70a27f31e30faa9a7ef9919f 460.19kB / 460.19kB  0.7s
+ => => sha256:008685971843f4083d919f28961187eb5c024c88 12.56MB / 12.56MB  18.6s
+ => => sha256:ce1e180c1f7cdae3f712aefba965960eddb78954ff6a003 248B / 248B  0.7s
+ => => sha256:18159b2be11db91f84b8f8f655cd860f805dbd9e49a 9.02kB / 9.02kB  0.0s
+ => => sha256:652f96392acd4765fb86260badd593f64c7346b51eb 1.73kB / 1.73kB  0.0s
+ => => extracting sha256:c7ea9f6d786a34c70a27f31e30faa9a7ef9919f9befcaa30  0.1s
+ => => extracting sha256:008685971843f4083d919f28961187eb5c024c882c9ee36a  0.5s
+ => => extracting sha256:ce1e180c1f7cdae3f712aefba965960eddb78954ff6a0039  0.0s
+ => [2/2] COPY test.py /test.py                                            0.1s
+ => exporting to image                                                     0.0s
+ => => exporting layers                                                    0.0s
+ => => writing image sha256:64a569f0faf38d2a94f87c37152739145382c081dbb17  0.0s
+ => => naming to docker.io/library/my-test:v1                
+[mohmed@localhost work-space]$ sudo docker run my-test:v2
+[sudo] password for mohmed: 
+Hello Docker
+
+
+
+
+
+
+
+
+
+
+
+
