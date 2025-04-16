@@ -1,0 +1,24 @@
+Run container centos or ubuntu in an interactive
+mode
+
+docker run -it ubuntu 
+
+▪ Run the following command in the container
+“echo docker ”
+
+echo docker 
+
+▪ Open a bash shell in the container and touch a
+file named hello-docker
+
+touch hello-docker
+
+▪ Stop the container and remove it. Write your
+comment about the file hello-docker
+
+file was deleted
+
+▪ Remove all stopped containers
+
+docker ps -a 
+docker stop 654f1

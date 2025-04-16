@@ -1,0 +1,19 @@
+Run the container hello-world
+
+docker run hello-world
+
+▪ Check the container status
+
+docker ps 
+
+▪ Start the stopped container
+
+docker run 8a08c
+
+▪ Remove the container
+
+docker rm 8a08c
+
+▪ Remove the image
+
+docker rmi 8a08c
