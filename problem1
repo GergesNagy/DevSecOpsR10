@@ -1,0 +1,65 @@
+▪ Run the container hello-world
+
+[root@localhost ~]# docker image ls
+REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+hello-world   latest    74cc54e27dc4   2 months ago   10.1kB
+
+
+▪ Check the container status
+
+[root@localhost ~]# docker container ls -a
+CONTAINER ID   IMAGE         COMMAND    CREATED              STATUS                          PORTS     NAMES
+0d14c5626101   hello-world   "/hello"   About a minute ago   Exited (0) About a minute ago             eager_nash
+
+
+
+▪ Start the stopped container
+
+[root@localhost ~]# docker container start -i  0d14c5626101
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+
+
+
+
+▪ Remove the container
+▪ Remove the image
+
+ [rshdan@localhost ~]$ docker container stop 0d14c5626101
+ 0d14c5626101
+ [rshdan@localhost ~]$ docker container rm 0d14c5626101
+ 0d14c5626101
+ [rshdan@localhost ~]$ docker image ls
+ REPOSITORY    TAG       IMAGE ID       CREATED        SIZE
+ hello-world   latest    74cc54e27dc4   2 months ago   10.1kB
+ [rshdan@localhost ~]$ docker rmi 74cc54e27dc4
+ Untagged: hello-world:latest
+ Untagged: hello-world@sha256:424f1f86cdf501deb591ace8d14d2f40272617b51b374915a87a2886b2025ece
+ Deleted: sha256:74cc54e27dc41bb10dc4b2226072d469509f2f22f1a3ce74f4a59661a1d44602
+ Deleted: sha256:63a41026379f4391a306242eb0b9f26dc3550d863b7fdbb97d899f6eb89efe72
+ [rshdan@localhost ~]$ 
+
+
+
+
+

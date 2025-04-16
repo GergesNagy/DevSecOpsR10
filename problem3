@@ -1,0 +1,49 @@
+
+▪ Run a container httpd with name apache and
+attach a volume 2 volumes to the container
+▪ Volume1 for containing static html file
+▪ Volume2 for containing httpd configuration
+
+[rshdan@192 Downloads]$ docker container run -d --name "apache" -v /home/rshdan/Downloads:/usr/local/apache2/htdocs/ -v /home/rshdan/Documents:/usr/local/apache2/conf/ httpd
+a124d631eab57bdde3b0824fb6d0c14009d539e6fe25d3c258154b8f7b01e527
+[rshdan@192 Downloads]$
+
+
+
+
+
+
+
+▪Remove the container
+
+
+[rshdan@192 ~]$ docker container ls
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+[rshdan@192 ~]$ docker container ls -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS                         PORTS     NAMES
+a124d631eab5   httpd     "httpd-foreground"       7 minutes ago       Exited (1) 5 minutes ago                 apache
+aed19a952d53   mysql     "docker-entrypoint.s…"   About an hour ago   Exited (1) About an hour ago             recursing_gates
+[rshdan@192 ~]$ docker container rm a124d631eab5
+a124d631eab5
+[rshdan@192 ~]$
+
+
+
+
+
+
+
+▪ Run a new container with the following:
+▪ Attach the 2 volumes that was attached to the
+previous container
+▪ Map port 80 to port 9898 on you host machine
+▪ Access the html files from your browser 
+
+
+
+[rshdan@192 ~]$ docker container run -d -p 9898:80 --name "apache" -v /home/rshdan/Downloads:/usr/local/apache2/htdocs/ httpd
+c69265a945a24fc096b1e535d6a590220505e9ed3db94598f423949b87322f3d
+[rshdan@192 ~]$ docker container ps
+CONTAINER ID   IMAGE     COMMAND              CREATED         STATUS         PORTS                                     NAMES
+c69265a945a2   httpd     "httpd-foreground"   9 seconds ago   Up 8 seconds   0.0.0.0:9898->80/tcp, [::]:9898->80/tcp   apache
+[rshdan@192 ~]$

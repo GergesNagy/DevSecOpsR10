@@ -1,0 +1,62 @@
+
+▪ Run the image httpd again without attaching any
+volumes
+
+[rshdan@192 Downloads]$ docker run httpd
+
+
+▪ Add html static files to the container and make
+sure they are accessible
+
+[rshdan@192 Downloads]$ docker cp staticWebPage.html  hungry_golick:/usr/local/apache2/htdocs/
+Successfully copied 2.56kB to hungry_golick:/usr/local/apache2/htdocs/
+[rshdan@192 Downloads]$
+
+
+▪ Commit the container with image name
+IMAGE_NAME
+
+
+[rshdan@localhost Downloads]$ docker commit hungry_golick httpd_image 
+sha256:6b3cd978aff89ec053132340dffebe0f7fe768092e6bcefb9e1476e38128065b
+[rshdan@localhost Downloads]$ docker image ls
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+httpd_image   latest    6b3cd978aff8   10 seconds ago   148MB
+ubuntu        latest    602eb6fb314b   6 days ago       78.1MB
+alpine        latest    aded1e1a5b37   8 weeks ago      7.83MB
+nginx         latest    4cad75abc83d   2 months ago     192MB
+httpd         latest    10fd72f437c4   2 months ago     148MB
+mysql         latest    567107cb6971   2 months ago     797MB
+[rshdan@localhost Downloads]$ 
+
+
+
+
+▪ Create a dockerfile for the previous image and
+build the image from this dockerfile
+
+FROM httpd
+USER root
+
+
+ADD staticWebPage.html /usr/local/apache2/htdocs
+RUN useradd  samy
+USER samy
+
+rshdan@192 test]$ docker build . -t httpd:v1.0
+[+] Building 1.1s (8/8) FINISHED                                                        docker:default
+ => [internal] load build definition from Dockerfile                                              0.0s
+ => => transferring dockerfile: 195B                                                              0.0s
+ => [internal] load metadata for docker.io/library/httpd:latest                                   0.0s
+ => [internal] load .dockerignore                                                                 0.0s
+ => => transferring context: 2B                                                                   0.0s
+ => [internal] load build context                                                                 0.0s
+ => => transferring context: 672B                                                                 0.0s
+ => [1/3] FROM docker.io/library/httpd:latest                                                     0.0s
+ => [2/3] ADD staticWebPage.html /usr/local/apache2/htdocs                                        0.0s
+ => [3/3] RUN useradd  samy                                                                       0.8s
+ => exporting to image                                                                            0.1s
+ => => exporting layers                                                                           0.0s
+ => => writing image sha256:dd8320dde2dfa73db6b114313edf33283a3e5185ca9c2cb2f8426f2c588b81e5      0.0s
+ => => naming to docker.io/library/httpd:v1.0                                                     0.0s
+[rshdan@192 test]$
