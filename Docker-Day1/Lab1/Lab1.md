@@ -14,7 +14,8 @@ docker run hello-world
 ```
 
 **Output:**
-```
+
+```text
 Hello from Docker!
 This message shows that your installation appears to be working correctly.
 
