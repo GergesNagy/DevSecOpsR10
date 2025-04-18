@@ -1,0 +1,20 @@
+problem 4
+Run the image httpd again without attaching any volumes 
+docker run -d --name task4 -p 9797:80   httpd
+▪ Add html static files to the container and make sure they are accessible 
+docker cp /home/ahmed/dcckerdir/staticWebPage.html 
+task4:/usr/local/apache2/htdocs/
+▪ Commit the container with image name IMAGE_NAME 
+docker commit apache myapache:v1
+▪ Create a dockerfile for the previous image and build the image from this dockerfile
+
+
+Problem 5 
+Create a volume called mysql_data, then deploy a MySQL database called app-database. Use the mysql latest image, and use the -e flag to set MYSQL_ROOT_PASSWORD to P4sSw0rd0!.M ount the mysql_data volume to /var/lib/mysql. The container should run in the background
+
+
+docker volume create mysql_data
+
+docker run -d   --name app-database   -e MYSQL_ROOT_PASSWORD='P4sSw0rd0!'   -v mysql_data:/var/lib/mysql  mysql:latest
+
+
