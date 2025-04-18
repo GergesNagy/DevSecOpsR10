@@ -1,34 +1,30 @@
-# for running in docker compose with prebuilt images
-
-# version is now using "compose spec"
-# v2 and v3 are now combined!
-# docker-compose v1.27+ required
+version: "3.8"
 
 services:
   vote:
-    image: dockersamples/examplevotingapp_vote
+    image: voteservice
     depends_on:
       redis:
         condition: service_healthy 
     ports:
-      - "8080:80"
+      - "8082:80"  # Changed from 8080 to avoid port conflict
     networks:
       - front-tier
       - back-tier
 
   result:
-    image: dockersamples/examplevotingapp_result
+    image: resultservice
     depends_on:
       db:
         condition: service_healthy 
     ports:
-      - "8081:80"
+      - "8081:4000"
     networks:
       - front-tier
       - back-tier
 
   worker:
-    image: dockersamples/examplevotingapp_worker
+    image: workerservice1
     depends_on:
       redis:
         condition: service_healthy 
@@ -43,21 +39,21 @@ services:
       - "./healthchecks:/healthchecks"
     healthcheck:
       test: /healthchecks/redis.sh
-      interval: "5s"
+      interval: 5s
     networks:
       - back-tier
 
   db:
     image: postgres:15-alpine
     environment:
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     volumes:
-      - "db-data:/var/lib/postgresql/data"
-      - "./healthchecks:/healthchecks"
+      - db-data:/var/lib/postgresql/data
+      - ./healthchecks:/healthchecks
     healthcheck:
       test: /healthchecks/postgres.sh
-      interval: "5s"
+      interval: 5s
     networks:
       - back-tier
 
