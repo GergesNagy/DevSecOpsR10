@@ -4,7 +4,9 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker-Compose-Tasks-Day4", "Docker-Compose-Tasks-Day4", "{0A6A7F03-DE5B-5D8B-9E8E-EA7A7992C18C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "Docker-Compose-Tasks-Day4\worker\Worker.csproj", "{5E080D52-494D-D733-7C6E-006B4FE82B47}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task1", "Task1", "{07144A4B-8DD2-512E-07A5-B3336200F182}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "Docker-Compose-Tasks-Day4\Task1\worker\Worker.csproj", "{5038DE45-36BE-5840-8EC2-D75E7743787F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,18 +14,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5E080D52-494D-D733-7C6E-006B4FE82B47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E080D52-494D-D733-7C6E-006B4FE82B47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E080D52-494D-D733-7C6E-006B4FE82B47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E080D52-494D-D733-7C6E-006B4FE82B47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5038DE45-36BE-5840-8EC2-D75E7743787F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5038DE45-36BE-5840-8EC2-D75E7743787F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5038DE45-36BE-5840-8EC2-D75E7743787F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5038DE45-36BE-5840-8EC2-D75E7743787F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{5E080D52-494D-D733-7C6E-006B4FE82B47} = {0A6A7F03-DE5B-5D8B-9E8E-EA7A7992C18C}
+		{07144A4B-8DD2-512E-07A5-B3336200F182} = {0A6A7F03-DE5B-5D8B-9E8E-EA7A7992C18C}
+		{5038DE45-36BE-5840-8EC2-D75E7743787F} = {07144A4B-8DD2-512E-07A5-B3336200F182}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DA2C48E8-7356-49DB-9641-651DAD8BB46B}
+		SolutionGuid = {C4AC5F19-B979-4B05-87E2-B80FFC58BE10}
 	EndGlobalSection
 EndGlobal

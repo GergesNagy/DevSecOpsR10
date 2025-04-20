@@ -1,7 +1,6 @@
 
 ---
 
-```markdown
 # 🗳️ Voting App - Microservices Project
 
 This project is a simple microservices-based application built using Docker Compose. It consists of the following services:
@@ -69,7 +68,7 @@ docker compose up --build
 
 > Below is a demo video showcasing the full functionality of the voting app:
 
-🎬 [Click here to watch the demo](vote-example.webm)
+🎬 [Click here to watch the demo](vote-example.gif)
 
 ---
 
