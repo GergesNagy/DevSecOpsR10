@@ -64,11 +64,12 @@ docker compose up --build
 
 ---
 
-## 🎥 Demo Video
+## 🎥 Demo
 
-> Below is a demo video showcasing the full functionality of the voting app:
+> Below is a demo GIF showcasing the full functionality of the voting app:
 
-🎬 [Click here to watch the demo](vote-example.gif)
+![Voting App Demo](vote-example.gif)
+
 
 ---
 
