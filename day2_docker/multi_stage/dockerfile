@@ -1,0 +1,25 @@
+# Multi-stage Build
+# Create a Dockerfile that:
+# Uses node image to build a React application
+# Then copies just the built static files to an nginx image    
+# stage 1 build React app
+    FROM node:18-alpine AS builder
+    WORKDIR /app
+    #copy   package file ..> it have all dependences
+    COPY package.json  ./
+    # install dependences
+    RUN npm install 
+    #copy all file project
+    COPY . .
+    #build file to give html file
+    RUN npm run build 
+
+    # --------stage2-------
+    # run app in nginx
+    FROM nginx:alpine
+    # copy build_files
+    COPY --from=builder /app/build /usr/share/nginx/html
+    #expose on port 80
+    EXPOSE 80
+    #run
+    CMD ["nginx", "-g", "daemon off;"]

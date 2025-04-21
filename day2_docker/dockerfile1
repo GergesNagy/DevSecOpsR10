@@ -1,0 +1,9 @@
+#Python Hello World
+#Use the official Python alpine image
+#Create a simple Python script that prints "Hello Docker!"
+#Make the script run when the container starts
+
+FROM python:3-alpine
+WORKDIR /app
+COPY app.py .
+CMD ["python", "app.py"]

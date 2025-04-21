@@ -1,0 +1,48 @@
+Task 1:
+
+Registeration and Login Users on system
+Simulate a simple authentication system that supports multiple users.
+
+Instructions:
+
+Let users register by providing a username and a strong password (add some limitions here) 
+Store the data  (name , hashed passwrod)in a JSON file like:
+{
+  "alice": "$2b$12$abc123...",
+  "bob": "$2b$12$xyz456..."
+}
+
+Allow login by verifying the password. Please use "bcrypt"
+-----------------------------------------
+
+Task2: 
+
+Establish an SSH connection from a Windows machine to a remote Ubuntu VM and run basic commands.
+- Step 1: 
+    Set Up SSH on the Ubuntu VM (openssh-server)
+    Start and enable SSH service to allow incoming SSH connections:
+    Find your Ubuntu VM's IP address
+    Ensure that port 22 is open in VM
+
+- Step 2:
+    Set Up SSH Client on the Windows Host Machine (paramiko)
+    Write a Python Script to Connect via SSH connection from your Windows machine to the Ubuntu VM 
+    and execute the uptime command:
+
+------------------------------------------------
+Task 3: "psutil"
+
+Write a Python script that checks the active network connections on a Linux machine and prints them.
+
+---------------------------------------------------
+Task 4: "watchdog"
+
+Write a Python script that monitors a specific file or directory for changes
+and logs any modifications (file integrity check).
+
+----------------------------------------------------
+Task 5: 
+
+Write a Python script that automatically backs up a local file to 
+an AWS S3 bucket using the boto3 library.
+
