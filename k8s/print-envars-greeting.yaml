@@ -1,0 +1,18 @@
+# print-envars-greeting.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: print-envars-greeting
+spec:
+  containers:
+  - name: print-env-container
+    image: bash
+    command: ["bash", "-c", "echo $(GREETING) $(COMPANY) $(GROUP) && sleep 3600"]
+    env:
+    - name: GREETING
+      value: "Welcome to"
+    - name: COMPANY
+      value: "DevOps"
+    - name: GROUP
+      value: "Industries"
+
