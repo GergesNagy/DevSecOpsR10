@@ -1,0 +1,35 @@
+# 7- Create a new deployment named blue with the nginx image and 3 replicas
+# Set Node Affinity to the deployment to place the pods on master only
+# NodeAffinity: requiredDuringSchedulingIgnoredDuringExecution
+# Key: color
+# values: blue
+apiVersion: apps/v1
+kind: Deployment
+# for deployment 
+metadata:
+  name: blue
+  #for deployment that match on label app: blue 
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: blue
+      # for pod will match with deployment 
+  template:
+    metadata:
+      labels:
+        app: blue
+        #spec for pod ..> condition for pod not working on any pod except that match (label key ,value )
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: color
+                operator: In
+                values:
+                - blue
+      containers:
+      - name: nginx
+        image: nginx

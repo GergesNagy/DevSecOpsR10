@@ -1,0 +1,12 @@
+# 5- Deploy a pod named nginx-pod using the nginx:alpine image with
+# the labels set to tier=backend.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+  labels:
+    tier: backend
+spec:
+  containers:
+  - name: nginx
+    image: nginx:alpine

@@ -1,0 +1,13 @@
+# 7- Create a service backend-service to expose the backend
+# application within the cluster on port 80.
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  # to expose app on cluster so we need to connect cluster with service (by label )
+spec:
+  selector:
+    tier: backend
+  ports:
+  - port: 80 #port container 
+    targetPort: 80 #service 

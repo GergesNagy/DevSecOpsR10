@@ -1,0 +1,14 @@
+# 10- Expose the web-app as service web-app-service application on
+# port 80 and nodeport 30082 on the nodes on the cluster
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app-service
+spec:
+  type: NodePort
+  selector:
+    app: web-app
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 30082

@@ -1,0 +1,43 @@
+# Create a deployment with
+# Name: beta
+# Image: redis
+# Replicas: 2
+# Namespace: finance
+# Resources Requests:
+# CPU: .5 vcpu
+# Mem: 1G
+# Resources Limits:
+# CPU: 1 vcpu
+# Mem: 2G
+
+apiVersion: apps/v1
+kind: Deployment
+#metadata for deployment (name ,namespace)
+metadata:
+  name: beta
+  namespace: finance
+  #how deployment will connect with pods (match with pods have label app:beta)
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: beta
+    #template for pod 
+  template:
+    metadata:
+      labels:
+        app: beta
+     # spec for pod   
+    spec:
+      containers:
+      - name: redis
+        image: redis
+        # limit  range
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+            #max range 
+          limits:
+            memory: "2Gi"
+            cpu: "1"

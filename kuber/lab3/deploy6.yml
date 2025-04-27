@@ -1,0 +1,9 @@
+# 6- Deploy a test pod using the nginx:alpine image.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test
+spec:
+  containers:
+  - name: nginx
+    image: nginx:alpine
