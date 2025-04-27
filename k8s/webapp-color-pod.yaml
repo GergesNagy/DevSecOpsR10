@@ -1,0 +1,12 @@
+# webapp-color-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: webapp-color
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    envFrom:
+    - configMapRef:
+        name: webapp-config-map
