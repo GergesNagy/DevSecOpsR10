@@ -1,0 +1,1 @@
+helm install haproxy-lab5 ./haproxy-lab5
